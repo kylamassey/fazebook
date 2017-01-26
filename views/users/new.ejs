@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Create a new user</h1>
+    <form action="/users" method="POST">
+      <label>
+        Email
+          <input name="email" />
+      </label>
+      <label>
+        First name
+          <input name="firstName" />
+      </label>
+      <label>
+        Last Name
+          <input name="lastName" />
+      </label>
+      <label>
+        Date of Birth
+          <input name="dob" />
+      </label>
+        <input type="submit" value="Save new user details" />
+    </form>
+  </body>
+</html>
