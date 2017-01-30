@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= 'Fazbook - Edit' + user.firstName + "'s Profile" %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1>Create a new user</h1>
-    <form action="/users" method="POST">
+    <form action="<% '/users/' + user.id + '?_method=PUT' %>" method="POST"></form>
+    <div>
       <label>
         Email
-          <input name="email" />
+          <input type="text" name="email" value="<%= user.email %>" />
       </label>
+    </div>
+    <div>
       <label>
         First name
-          <input name="firstName" />
+          <input type="text" name="firstName" value="<%= user.firstName %>" />
       </label>
+    </div>
+    <div>
       <label>
         Last Name
-          <input name="lastName" />
+          <input type="text" name="lastName" value="<% user.lastName %>" />
       </label>
+    </div>
+    <div>
       <label>
         Date of Birth
-          <input name="dob" />
+          <input type="date" name="dob" value="<%= moment(user.dob).format('YYYY-MM-DD') %>" />
       </label>
-        <input type="submit" value="Save new user details" />
+    </div>
+
+    <a href="<%= '/users/' + user.id %>">Cancel</a>
+    <input type="submit" value="Save" />
+    <form action+"<%= '/users/' + user.id + '?_method=DELETE' %>" method="POST">
+      <input type="submit" value="Delete user" />
     </form>
   </body>
 </html>
